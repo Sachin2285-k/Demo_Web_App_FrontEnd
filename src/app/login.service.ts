@@ -6,6 +6,7 @@ import EmployeeQueries from './graphql/graphql.queries';
 import { User } from './user';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import EmployeeMutations from './graphql/graphql.mutation';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,15 @@ export class LoginService {
     sessionStorage.removeItem("currentUser");
     this.router.navigateByUrl("/login") 
     this.isLogged = false;
+  }
+
+  register(newEmployee: User): Observable<any>{
+    return this.apollo.mutate({
+      mutation: EmployeeMutations.getRegistered,
+      variables: {
+        input: newEmployee,
+      }
+    })
   }
 
   isAuthenticated(): boolean {

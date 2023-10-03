@@ -15,6 +15,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <button (click)="logoutClick()" *ngIf="loginService.isLogged == true" class="btn btn-outline-success mr-sm-2">Logout</button>
           <a *ngIf="loginService.isLogged == false" class="btn btn-primary mr-sm-2" routerLink="login">Login</a>
+          <a *ngIf="loginService.isLogged == false" class="btn btn-success mr-sm-2 ms-2" routerLink="register">Register</a>
         </ul>
       </div>
     </div>

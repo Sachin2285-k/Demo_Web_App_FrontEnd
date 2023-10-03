@@ -10,7 +10,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   if (loginService.isAuthenticated()) {
     return true;
   } else {
-    alert('You are not authorized');
+    alert("You are not authorized");
     router.navigateByUrl('/login');
     return false;
   }
