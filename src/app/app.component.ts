@@ -1,3 +1,4 @@
+import { LoginService } from './login.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Demo_Web_App';
+  constructor(public loginService: LoginService){}
+
+  logoutClick(){
+    this.loginService.logout();
+  }
 }
